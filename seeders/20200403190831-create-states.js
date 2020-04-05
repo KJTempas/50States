@@ -1,5 +1,5 @@
 'use strict';
-
+//initial data for the app
 const states = [  
   {  
      "name":"Alabama",
