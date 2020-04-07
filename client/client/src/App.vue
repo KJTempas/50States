@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <Header></Header>
-    <!-- todo add content -->
+    <!-- RouterView will contain another component, which will be determined by VueRouter -->
+    <!--examining the browser URL and loading the corresponding component into the RouterView-->
+    <!--these mappings are defined in router/index.js-->
+    <RouterView></RouterView>
     <Footer></Footer>
     
   </div>

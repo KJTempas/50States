@@ -17,6 +17,7 @@ export default {
 <style scoped>
     .jumbotron {
         background-image: url('../assets/map_header.jpeg');
+        /* Photo by Chris Lawton on Unsplash */
         background-position: center;
         background-size: cover;
     }
