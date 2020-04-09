@@ -3,9 +3,10 @@
 
         <span class="m-2">{{ state.name }}</span>
         <p>
-            <input id="visited" class="m-2" type="checkbox">
+            <input id="visited" class="m-2" type="checkbox"
+            v-model="stateVisited" v-on:change="$emit('isVisited', stateName, stateVisited)">
         </p>
-
+<!--when box is checked, emit isVisited to parent;  v-model is linked to stateVisited data/prop-->
     </div>
 </template>
 
@@ -17,6 +18,8 @@ export default {
     },
     data() {
         return {
+            stateName: this.state.name,
+            stateVisited: this.state.visited,
         }
     }
 }
