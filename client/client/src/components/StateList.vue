@@ -1,5 +1,10 @@
 <template>
     <div id="state-list">
+<!-- in Summary, bind to computed methods below-->
+        <Summary
+            v-bind:total="totalVisited" 
+            v-bind:visitedAll="visitedAll">
+        </Summary>
 <!--flex-wrap displays comonents in a grid -->
         <div class="d-flex flex-wrap justify-content-arrow">
             <div class="p-2" v-for="state in states" v-bind:key="state.name">
@@ -13,13 +18,15 @@
 </template>
 
 <script>
-//import and register StateList as a child component
+//import and register StateList and Summary as child components
 import State from '@/components/State'
+import Summary from '@/components/Summary'
+
 
 export default {
     name: 'StateList',
     components: {
-        State
+        State,Summary
     },
     data() {
         return {
@@ -41,6 +48,20 @@ export default {
             this.$stateService.setVisited(stateName, stateVisited).then(data => {
                 this.getAll()
             })
+        }
+    },
+    computed: {  
+        totalVisited() {
+            let visited = this.states.filter(function(state) {
+                return state.visited
+            }) //visited.lenth is equal to the number of states visited
+            return visited.length
+        },
+        visitedAll() {
+            let visited = this.states.filter(function(state) {
+                return state.visited
+            }) //if length of visited array is same as length of states array
+            return visited.length == this.states.length
         }
     }
 }
