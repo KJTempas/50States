@@ -45,7 +45,7 @@ export default {
         //this method is bound to v-on:isVisited in State.vue
         //this method calls $stateService.setVisited and calls getAll() method to update the states arrayu
         updateVisited(stateName, stateVisited) {
-            this.$stateService.setVisited(stateName, stateVisited).then(data => {
+            this.$stateService.setVisited(stateName, stateVisited).then(( )  => {
                 this.getAll()
             })
         }

@@ -40,6 +40,7 @@ export default {
     },
     mounted() {
         this.state.name = this.$route.params.state //this. refers to whatever state is after the /detail in the route path
+        //prevents use from draggin map away fromstate
         this.$refs.stateMap.mapObject.dragging.disable()
         this.fetchStateData()  //call method below
     },
